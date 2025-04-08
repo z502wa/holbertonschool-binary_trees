@@ -8,19 +8,15 @@
  */
 static size_t height(const binary_tree_t *tree)
 {
-    /* Declare variables at the beginning (C90/gnu89 requirement) */
-    size_t left_h, right_h;
+	size_t left_h, right_h;
 
-    /* If the tree is NULL, its height is 0 */
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    /* Calculate the height of the left and right subtrees */
-    left_h = height(tree->left);
-    right_h = height(tree->right);
+	left_h = height(tree->left);
+	right_h = height(tree->right);
 
-    /* Return the larger height among the two subtrees plus 1 for the current node */
-    return ((left_h > right_h ? left_h : right_h) + 1);
+	return ((left_h > right_h ? left_h : right_h) + 1);
 }
 
 /**
@@ -32,17 +28,13 @@ static size_t height(const binary_tree_t *tree)
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-    /* Declare variables at the beginning */
-    int left_height, right_height;
+	int left_height, right_height;
 
-    /* If the tree is NULL, the balance factor is 0 */
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    /* We can cast the result of height() to int safely here */
-    left_height = (int)height(tree->left);
-    right_height = (int)height(tree->right);
+	left_height = (int)height(tree->left);
+	right_height = (int)height(tree->right);
 
-    /* The balance factor = height(left subtree) - height(right subtree) */
-    return (left_height - right_height);
+	return (left_height - right_height);
 }
